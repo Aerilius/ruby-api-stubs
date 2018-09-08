@@ -269,9 +269,9 @@ class Sketchup::View
   def draw2d(openglenum, points)
   end
 
-  # The draw_lines method is used to draw disconnected lines.
+  # The draw_line method is used to draw disconnected lines.
   #
-  # You must have an even number of points. This method is usually  invoked
+  # You must have an even number of points. This method is usually invoked
   # within the draw method of a tool.
   #
   # @example
@@ -281,12 +281,12 @@ class Sketchup::View
   #   status = view.drawing_color="red"
   #   status = view.draw_lines point4, point5
   #
-  # @overload draw_lines(point_list, ...)
+  # @overload draw_line(point_list, ...)
   #
   #   @param point_list [Array<Geom::Point3d>] An even number of Point3d objects.
   #   @return [Sketchup::View] returns the View object
   #
-  # @overload draw_lines(pts)
+  # @overload draw_line(pts)
   #
   #   @param pts [Array<Geom::Point3d>] An array of Point3d objects.
   #   @return [Sketchup::View] returns the View object
