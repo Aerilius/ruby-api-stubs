@@ -34,7 +34,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return aspectratio - an aspect ratio, such as 1.85, if
+  # @return [Float] aspectratio - an aspect ratio, such as 1.85, if
   #   successful
   #
   # @version SketchUp 6.0
@@ -59,7 +59,7 @@ class Sketchup::Camera
   #
   # @param [Float] ratio
   #
-  # @return aspectratio - an aspect ratio, such as 1.85, if
+  # @return [Float] aspectratio - an aspect ratio, such as 1.85, if
   #   successful
   #
   # @version SketchUp 6.0
@@ -77,7 +77,7 @@ class Sketchup::Camera
   # @example
   #   Sketchup.active_model.active_view.camera.center_2d
   #
-  # @return Point3d
+  # @return [Geom::Point3d]
   #
   # @version SketchUp 2015
   def center_2d
@@ -95,7 +95,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return description - a string description for the camera if
+  # @return [String] a string description for the camera if
   #   successful
   #
   # @version SketchUp 6.0
@@ -110,7 +110,7 @@ class Sketchup::Camera
   #
   # @param [String] description
   #
-  # @return description - a string description for the camera if
+  # @return [String] a string description for the camera if
   #   successful
   #
   # @version SketchUp 6.0
@@ -130,7 +130,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return direction - a Vector3d object pointing in the direction
+  # @return [Geom::Vector3d] a Vector3d object pointing in the direction
   #   that the Camera is pointing if successful
   #
   # @version SketchUp 6.0
@@ -149,7 +149,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return eye - a Point3d object if successful
+  # @return [Geom::Point3d] eye - a Point3d object if successful
   #
   # @version SketchUp 6.0
   def eye
@@ -170,13 +170,10 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @param length
-  #   The focal length for the camera if successful.
-  #
-  # @return nil
+  # @return [Float] The focal length for the camera if successful.
   #
   # @version SketchUp 6.0
-  def focal_length(length)
+  def focal_length
   end
 
   # The focal_length= method allows you to sent the focal length (in
@@ -194,7 +191,7 @@ class Sketchup::Camera
   #
   # @param [Float] value
   #
-  # @return length - the new focal length for the camera if
+  # @return [Float] the new focal length for the camera if
   #   successful
   #
   # @version SketchUp 6.0
@@ -214,7 +211,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return fov - field of view, in degrees, if successful
+  # @return [Float] field of view, in degrees, if successful
   #
   # @version SketchUp 6.0
   def fov
@@ -237,7 +234,7 @@ class Sketchup::Camera
   # @param fov
   #   A field of view in millimeters.
   #
-  # @return fov - the new field of view if successful
+  # @return [Float] the new field of view if successful
   #
   # @version SketchUp 6.0
   def fov=(fov)
@@ -256,9 +253,7 @@ class Sketchup::Camera
   #     # Compute the vertical FOV.
   #   end
   #
-  # @return bool - true if vertical, false otherwise
-  #
-  # @return [Boolean]
+  # @return [Boolean] true if vertical, false otherwise
   #
   # @version SketchUp 2015
   def fov_is_height?
@@ -278,7 +273,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return height - height in current units if successful
+  # @return [Float] height in current units if successful
   #
   # @version SketchUp 6.0
   def height
@@ -300,7 +295,7 @@ class Sketchup::Camera
   #
   # @param [Float] value
   #
-  # @return height - height in current units if successful
+  # @return [Float] height in current units if successful
   #
   # @version SketchUp 6.0
   def height=(value)
@@ -323,7 +318,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return width - the width of the camera if successful
+  # @return [Float] the width of the camera if successful
   #
   # @version SketchUp 6.0
   def image_width
@@ -346,7 +341,7 @@ class Sketchup::Camera
   #
   # @param [Float] value
   #
-  # @return width - the width of the camera if successful
+  # @return [Float] the width of the camera if successful
   #
   # @version SketchUp 6.0
   def image_width=(value)
@@ -380,7 +375,7 @@ class Sketchup::Camera
   # @param perspective
   #   see {#perspective?}.
   #
-  # @return camera - a new Camera object if successful
+  # @return [Sketchup::Camera] a new Camera object if successful
   #
   # @version SketchUp 6.0
   def initialize(eye, target, up, perspective = true, fov = 30.0)
@@ -392,9 +387,7 @@ class Sketchup::Camera
   # @example
   #   Sketchup.active_model.active_view.camera.is_2d?
   #
-  # @return Boolean - true if camera is in 2d mode, false otherwise
-  #
-  # @return [Boolean]
+  # @return [Boolean] true if camera is in 2d mode, false otherwise
   #
   # @version SketchUp 2015
   def is_2d?
@@ -415,7 +408,7 @@ class Sketchup::Camera
   # @param perspective
   #   true for perspective, false for orthographic
   #
-  # @return status - true if perspective, false if orthographic
+  # @return [Boolean] true if perspective, false if orthographic
   #
   # @version SketchUp 6.0
   def perspective=(perspective)
@@ -433,9 +426,7 @@ class Sketchup::Camera
   #     UI.messagebox "Orthographic"
   #   end
   #
-  # @return status - true if perspective, false if orthographic
-  #
-  # @return [Boolean]
+  # @return [Boolean] true if perspective, false if orthographic
   #
   # @version SketchUp 6.0
   def perspective?
@@ -450,7 +441,7 @@ class Sketchup::Camera
   # @example
   #   Sketchup.active_model.active_view.camera.scale_2d
   #
-  # @return float
+  # @return [Float]
   #
   # @version SketchUp 2015
   def scale_2d
@@ -474,15 +465,15 @@ class Sketchup::Camera
   #   end
   #
   # @param eye
-  #   See Camera.eye.
+  #   @see Camera#eye
   #
   # @param target
-  #   See Camera.target.
+  #   @see Camera#target
   #
   # @param up
-  #   See Camera.up.
+  #   @see Camera#up
   #
-  # @return camera - the modified camera
+  # @return [Sketchup::Camera] the modified camera
   #
   # @version SketchUp 6.0
   def set(eye, target, up)
@@ -500,7 +491,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure".
   #   end
   #
-  # @return target - a Point3d object if successful
+  # @return [Geom::Point3d] a Point3d object if successful
   #
   # @version SketchUp 6.0
   def target
@@ -519,7 +510,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return up - a Vector3d object if successful
+  # @return [Geom::Vector3d] a Vector3d object if successful
   #
   # @version SketchUp 6.0
   def up
@@ -541,7 +532,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return vector - a Vector3d object if successful
+  # @return [Geom::Vector3d] a Vector3d object if successful
   #
   # @version SketchUp 6.0
   def xaxis
@@ -564,7 +555,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return vector - a Vector3d object if successful
+  # @return [Geom::Vector3d] a Vector3d object if successful
   #
   # @version SketchUp 6.0
   def yaxis
@@ -585,7 +576,7 @@ class Sketchup::Camera
   #     UI.messagebox "Failure"
   #   end
   #
-  # @return vector - a Vector3d object if successful
+  # @return [Geom::Vector3d] a Vector3d object if successful
   #
   # @version SketchUp 6.0
   def zaxis
